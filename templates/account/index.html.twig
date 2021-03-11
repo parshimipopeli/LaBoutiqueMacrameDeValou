@@ -1,0 +1,14 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Mon compte - La boutique macramé de val{% endblock %}
+
+
+{% block body %}
+
+<h1 class="text-center">Mon compte</h1>
+
+{#    appel à app.user .firstname qui nous indique le prenom de l utilisateur #}
+    <p>Bonjour {{ app.user.firstname }}, bienvenue dans votre espace personnel</p>
+    <hr>
+    <a href="{{ path('account_password') }}">Modifier mon mot de passe</a>
+{% endblock %}
