@@ -3,7 +3,8 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="La boutique de création de bijoux en macramé complétement artisanale et fait avec goût et passion !">
+    <meta name="description"
+          content="La boutique de création de bijoux en macramé complétement artisanale et fait avec goût et passion !">
     <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
     <meta name="generator" content="Jekyll v4.1.1">
     <title>La boutique Macramé de val</title>
@@ -11,6 +12,9 @@
     <!-- Bootstrap core CSS -->
     <link href="{{ asset('assets/css/bootstrap.min.css') }}" rel="stylesheet">
     <link rel="stylesheet" href="{{ asset('assets/css/app.css') }}">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.3/css/all.css"
+          integrity="sha384-SZXxX4whJ79/gErwcOYf+zWLeJdY/qpuqC4cAa9rOGUstPomtqpuNWT9wdPEn2fk" crossorigin="anonymous">
+
 
     <style>
         .bd-placeholder-img {
@@ -54,12 +58,13 @@
 
             <div class="navbar-item-custom">
                 {% if app.user %}
-                    <a href="{{ path('account') }}" class="text">Mon compte<small>({{ app.user.firstname }})</small> </a> | <a href="{{ path('app_logout') }}">Deconnexion</a>
+                    <a href="{{ path('account') }}" class="text">Mon compte<small>({{ app.user.firstname }})</small>
+                    </a> | <a href="{{ path('app_logout') }}">Deconnexion</a>
                 {% else %}
                     <a href="{{ path('app_login') }}" class="">Connexion</a> | <a href="{{ path('register') }}">Inscription</a>
                 {% endif %}
-
             </div>
+            <a href="{{ path('cart') }}" class="ml-3 text-white"><i class="fas fa-shopping-cart "></i></a>
 
 
         </div>
@@ -67,66 +72,66 @@
 </header>
 
 <main role="main">
-{% if block('carousel') is defined %}
-    <div id="myCarousel" class="carousel slide" data-ride="carousel">
-        <ol class="carousel-indicators">
-            <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-            <li data-target="#myCarousel" data-slide-to="1"></li>
-            <li data-target="#myCarousel" data-slide-to="2"></li>
-        </ol>
-        <div class="carousel-inner">
-            <div class="carousel-item active">
-                <svg class="bd-placeholder-img" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg"
-                     preserveAspectRatio="xMidYMid slice" focusable="false" role="img">
-                    <rect width="100%" height="100%" fill="#777"/>
-                </svg>
-                <div class="container">
-                    <div class="carousel-caption text-left">
-                        <h1>Example headline.</h1>
-                        <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta
-                            gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
-                        <p><a class="btn btn-lg btn-primary" href="#" role="button">Sign up today</a></p>
+    {% if block('carousel') is defined %}
+        <div id="myCarousel" class="carousel slide" data-ride="carousel">
+            <ol class="carousel-indicators">
+                <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+                <li data-target="#myCarousel" data-slide-to="1"></li>
+                <li data-target="#myCarousel" data-slide-to="2"></li>
+            </ol>
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <svg class="bd-placeholder-img" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg"
+                         preserveAspectRatio="xMidYMid slice" focusable="false" role="img">
+                        <rect width="100%" height="100%" fill="#777"/>
+                    </svg>
+                    <div class="container">
+                        <div class="carousel-caption text-left">
+                            <h1>Example headline.</h1>
+                            <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta
+                                gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
+                            <p><a class="btn btn-lg btn-primary" href="#" role="button">Sign up today</a></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <svg class="bd-placeholder-img" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg"
+                         preserveAspectRatio="xMidYMid slice" focusable="false" role="img">
+                        <rect width="100%" height="100%" fill="#777"/>
+                    </svg>
+                    <div class="container">
+                        <div class="carousel-caption">
+                            <h1>Another example headline.</h1>
+                            <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta
+                                gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
+                            <p><a class="btn btn-lg btn-primary" href="#" role="button">Learn more</a></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <svg class="bd-placeholder-img" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg"
+                         preserveAspectRatio="xMidYMid slice" focusable="false" role="img">
+                        <rect width="100%" height="100%" fill="#777"/>
+                    </svg>
+                    <div class="container">
+                        <div class="carousel-caption text-right">
+                            <h1>One more for good measure.</h1>
+                            <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta
+                                gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
+                            <p><a class="btn btn-lg btn-primary" href="#" role="button">Browse gallery</a></p>
+                        </div>
                     </div>
                 </div>
             </div>
-            <div class="carousel-item">
-                <svg class="bd-placeholder-img" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg"
-                     preserveAspectRatio="xMidYMid slice" focusable="false" role="img">
-                    <rect width="100%" height="100%" fill="#777"/>
-                </svg>
-                <div class="container">
-                    <div class="carousel-caption">
-                        <h1>Another example headline.</h1>
-                        <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta
-                            gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
-                        <p><a class="btn btn-lg btn-primary" href="#" role="button">Learn more</a></p>
-                    </div>
-                </div>
-            </div>
-            <div class="carousel-item">
-                <svg class="bd-placeholder-img" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg"
-                     preserveAspectRatio="xMidYMid slice" focusable="false" role="img">
-                    <rect width="100%" height="100%" fill="#777"/>
-                </svg>
-                <div class="container">
-                    <div class="carousel-caption text-right">
-                        <h1>One more for good measure.</h1>
-                        <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta
-                            gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
-                        <p><a class="btn btn-lg btn-primary" href="#" role="button">Browse gallery</a></p>
-                    </div>
-                </div>
-            </div>
+            <a class="carousel-control-prev" href="#myCarousel" role="button" data-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="sr-only">Previous</span>
+            </a>
+            <a class="carousel-control-next" href="#myCarousel" role="button" data-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="sr-only">Next</span>
+            </a>
         </div>
-        <a class="carousel-control-prev" href="#myCarousel" role="button" data-slide="prev">
-            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span class="sr-only">Previous</span>
-        </a>
-        <a class="carousel-control-next" href="#myCarousel" role="button" data-slide="next">
-            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="sr-only">Next</span>
-        </a>
-    </div>
     {% endif %}
 
     <div class="container-fluid marketing w-75 {% if block('carousel') is not defined %}mt-5{% endif %}">
@@ -140,9 +145,9 @@
     <footer class="footer-custom">
         <p class=""><a href="#">Back to top</a></p>
         <p>&copy; 2021-2021 La boutique Macramé de Val <br>
-           <small> La boutique de création de bijoux en macramé complétement artisanale et fait avec goût et passion !
-               <br>
-               <a href="#">Privacy</a> &middot; <a href="#">Terms</a></p></small>
+            <small> La boutique de création de bijoux en macramé complétement artisanale et fait avec goût et passion !
+                <br>
+                <a href="#">Privacy</a> &middot; <a href="#">Terms</a></p></small>
     </footer>
 </main>
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
