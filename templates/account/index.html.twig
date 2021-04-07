@@ -10,5 +10,7 @@
 {#    appel à app.user .firstname qui nous indique le prenom de l utilisateur #}
     <p>Bonjour {{ app.user.firstname }}, bienvenue dans votre espace personnel</p>
     <hr>
-    <a href="{{ path('account_password') }}">Modifier mon mot de passe</a>
+    <a href="{{ path('account_password') }}">- Modifier mon mot de passe</a><br>
+    <a href="{{ path('account_address') }}">- Gérer mes adresses</a><br>
+    {# <a href="{{ path('account_order') }}">Gérer mes commandes</a> #}
 {% endblock %}

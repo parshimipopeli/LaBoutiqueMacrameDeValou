@@ -1,0 +1,22 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Mes adresses - La boutique macramé de val{% endblock %}
+
+
+{% block body %}
+<a href="" class="class btn btn-info btn-sm float-right" >ajouter une adresses</a>
+
+<h1 class="text-center">Mes adresses</h1>
+
+{#    appel à app.user .firstname qui nous indique le prenom de l utilisateur #}
+    <p>C'est ici que vous pouvez gérer toutes vos adresses</p>
+    <a href="{{ path('account') }}">Retour</a>
+    <hr>
+
+{% if app.user.addresses|length == 0 %}  
+    <p class="text-center">Vous n'avez pas encore ajouté d'adresse dans votre compte.Pour en ajouter une, veuillez <a href="{{ path('account_address_add' )}}">cliquer ici</a></p> 
+{% else %}
+afficher les adresses
+{% endif %}           
+
+{% endblock %}
