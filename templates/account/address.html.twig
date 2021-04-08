@@ -1,22 +1,41 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Mes adresses - La boutique macramé de val{% endblock %}
+{% block title %}Mes adresses - La boutique macramé de val
+{% endblock %}
 
 
 {% block body %}
-<a href="" class="class btn btn-info btn-sm float-right" >ajouter une adresses</a>
+<a href="{{ path('account_address_add') }}" class="class btn btn-info btn-sm float-right">ajouter une adresses</a>
 
 <h1 class="text-center">Mes adresses</h1>
 
 {#    appel à app.user .firstname qui nous indique le prenom de l utilisateur #}
-    <p>C'est ici que vous pouvez gérer toutes vos adresses</p>
-    <a href="{{ path('account') }}">Retour</a>
-    <hr>
+<p>C'est ici que vous pouvez gérer toutes vos adresses</p>
+<a href="{{ path('account') }}">Retour</a>
+<hr>
 
-{% if app.user.addresses|length == 0 %}  
-    <p class="text-center">Vous n'avez pas encore ajouté d'adresse dans votre compte.Pour en ajouter une, veuillez <a href="{{ path('account_address_add' )}}">cliquer ici</a></p> 
+{% if app.user.addresses|length == 0 %}
+	<p class="text-center">Vous n'avez pas encore ajouté d'adresse dans votre compte.Pour en ajouter une, veuillez
+		<a href="{{ path('account_address_add' )}}">cliquer ici</a>
+	</p>
 {% else %}
-afficher les adresses
-{% endif %}           
-
+	<div class="row">
+		{% for address in app.user.addresses %}
+			<div class="col-md-4  mb-2">
+				<div class="card text-center">
+					<div class="card-header"><h3>{{ address.name }}</h3></div>
+						<div class="card-body">
+							<h5 class="card-title">{{ address.address }}</h5>
+							<p class="card-text">{{ address.postal}} , {{ address.city }}</p>
+							<a href="{{ path('account_address_edit', { 'id' : address.id }) }}" class="btn btn-primary btn-sm">Modifier mon adresse</a>
+							<a href="{{ path('account_address_delete', {'id' : address.id }) }}" class="btn btn-primary btn-sm">Supprimer mon adresse</a>
+						</div>
+						{# <div class="card-footer text-muted">
+							{{ address.company }}
+					</div> #}
+				</div>
+			</div>
+		{% endfor %}	
+	</div>
+{% endif %}	
 {% endblock %}
