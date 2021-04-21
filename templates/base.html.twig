@@ -1,10 +1,11 @@
 <!doctype html>
 <html lang="fr">
+
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description"
-          content="La boutique de création de bijoux en macramé complétement artisanale et fait avec goût et passion !">
+        content="La boutique de création de bijoux en macramé complétement artisanale et fait avec goût et passion !">
     <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
     <meta name="generator" content="Jekyll v4.1.1">
     <title>La boutique Macramé de val</title>
@@ -13,7 +14,7 @@
     <link href="{{ asset('assets/css/bootstrap.min.css') }}" rel="stylesheet">
     <link rel="stylesheet" href="{{ asset('assets/css/app.css') }}">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.3/css/all.css"
-          integrity="sha384-SZXxX4whJ79/gErwcOYf+zWLeJdY/qpuqC4cAa9rOGUstPomtqpuNWT9wdPEn2fk" crossorigin="anonymous">
+        integrity="sha384-SZXxX4whJ79/gErwcOYf+zWLeJdY/qpuqC4cAa9rOGUstPomtqpuNWT9wdPEn2fk" crossorigin="anonymous">
 
 
     <style>
@@ -35,44 +36,46 @@
     <!-- Custom styles for this template -->
     <link href="{{ asset ('assets/css/carousel.css') }}" rel="stylesheet">
 </head>
-<body>
-<header>
-    <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
-        <a class="navbar-brand text-danger" href="{{ path('home') }}">LBMDV</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse"
-                aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarCollapse">
-            <ul class="navbar-nav mr-auto">
-                <li class="nav-item active">
-                    <a class="nav-link" href="{{ path('products') }}">Mes créations</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">à propos</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Contact</a>
-                </li>
-            </ul>
 
-            <div class="navbar-item-custom">
-                {% if app.user %}
+<body>
+    <header>
+        <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+            <a class="navbar-brand text-danger" href="{{ path('home') }}">LBMDV</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse"
+                aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarCollapse">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="{{ path('products') }}">Mes créations</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">à propos</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Contact</a>
+                    </li>
+                </ul>
+
+                <div class="navbar-item-custom">
+                    {% if app.user %}
                     <a href="{{ path('account') }}" class="text">Mon compte<small>({{ app.user.firstname }})</small>
                     </a> | <a href="{{ path('app_logout') }}">Deconnexion</a>
-                {% else %}
-                    <a href="{{ path('app_login') }}" class="">Connexion</a> | <a href="{{ path('register') }}">Inscription</a>
-                {% endif %}
+                    {% else %}
+                    <a href="{{ path('app_login') }}" class="">Connexion</a> | <a
+                        href="{{ path('register') }}">Inscription</a>
+                    {% endif %}
+                </div>
+                <a href="{{ path('cart') }}" class="ml-3 text-white"><i class="fas fa-shopping-cart "></i></a>
+
+
             </div>
-            <a href="{{ path('cart') }}" class="ml-3 text-white"><i class="fas fa-shopping-cart "></i></a>
+        </nav>
+    </header>
 
-
-        </div>
-    </nav>
-</header>
-
-<main role="main">
-    {% if block('carousel') is defined %}
+    <main role="main">
+        {% if block('carousel') is defined %}
         <div id="myCarousel" class="carousel slide" data-ride="carousel">
             <ol class="carousel-indicators">
                 <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
@@ -82,8 +85,8 @@
             <div class="carousel-inner">
                 <div class="carousel-item active">
                     <svg class="bd-placeholder-img" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg"
-                         preserveAspectRatio="xMidYMid slice" focusable="false" role="img">
-                        <rect width="100%" height="100%" fill="#777"/>
+                        preserveAspectRatio="xMidYMid slice" focusable="false" role="img">
+                        <rect width="100%" height="100%" fill="#777" />
                     </svg>
                     <div class="container">
                         <div class="carousel-caption text-left">
@@ -96,8 +99,8 @@
                 </div>
                 <div class="carousel-item">
                     <svg class="bd-placeholder-img" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg"
-                         preserveAspectRatio="xMidYMid slice" focusable="false" role="img">
-                        <rect width="100%" height="100%" fill="#777"/>
+                        preserveAspectRatio="xMidYMid slice" focusable="false" role="img">
+                        <rect width="100%" height="100%" fill="#777" />
                     </svg>
                     <div class="container">
                         <div class="carousel-caption">
@@ -110,8 +113,8 @@
                 </div>
                 <div class="carousel-item">
                     <svg class="bd-placeholder-img" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg"
-                         preserveAspectRatio="xMidYMid slice" focusable="false" role="img">
-                        <rect width="100%" height="100%" fill="#777"/>
+                        preserveAspectRatio="xMidYMid slice" focusable="false" role="img">
+                        <rect width="100%" height="100%" fill="#777" />
                     </svg>
                     <div class="container">
                         <div class="carousel-caption text-right">
@@ -132,25 +135,27 @@
                 <span class="sr-only">Next</span>
             </a>
         </div>
-    {% endif %}
+        {% endif %}
 
-    <div class="container-fluid marketing w-75 {% if block('carousel') is not defined %}mt-5{% endif %}">
+        <div class="container-fluid marketing w-75 {% if block('carousel') is not defined %}mt-5{% endif %}">
 
-        {% block body %}
-        {% endblock %}
+            {% block body %}
+            {% endblock %}
 
-    </div><!-- /.container -->
+        </div><!-- /.container -->
 
-    <!-- FOOTER -->
-    <footer class="footer-custom position-static">
-        <p class=""><a href="#">Back to top</a></p>
-        <p>&copy; 2021-2021 La boutique Macramé de Val <br>
-            <small> La boutique de création de bijoux en macramé complétement artisanale et fait avec goût et passion !
-                <br>
-                <a href="#">Privacy</a> &middot; <a href="#">Terms</a></p></small>
-    </footer>
-</main>
-<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-<script src="{{ asset('assets/js/bootstrap.bundle.js') }}"></script>
+        <!-- FOOTER -->
+        <footer class="footer-custom position-static">
+            <p class=""><a href="#">Back to top</a></p>
+            <p>&copy; 2021-2021 La boutique Macramé de Val <br>
+                <small> La boutique de création de bijoux en macramé complétement artisanale et fait avec goût et
+                    passion !
+                    <br>
+                    <a href="#">Privacy</a> &middot; <a href="#">Terms</a></p></small>
+        </footer>
+    </main>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="{{ asset('assets/js/bootstrap.bundle.js') }}"></script>
 </body>
+
 </html>

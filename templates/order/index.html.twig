@@ -1,0 +1,26 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}La boutique Macramé de valou{% endblock %}
+
+{% block body %}
+<h2 class="text-center">Je passe ma commande</h2>
+<hr>
+<div class="row">
+    <div class="col-md-6">
+        <h4>Choisir mon adresse de livraison</h4>
+
+        {% set formHtml %}
+        {{ form(form) }}
+        {%  endset %}
+
+        {{ formHtml|replace({'[br]' : '<br>'})|raw }}
+    </div>
+
+    <div class="col-md-6">
+    <h4>Récapitulatif de ma commande</h4>
+    </div>
+
+
+</div>
+
+{% endblock %}

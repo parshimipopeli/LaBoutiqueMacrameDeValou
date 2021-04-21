@@ -35,6 +35,8 @@ class RegisterController extends AbstractController
             $em->persist($user);
             $em->flush();
 
+            return $this->redirectToRoute('home/index.html.twig');
+
         }
 
 

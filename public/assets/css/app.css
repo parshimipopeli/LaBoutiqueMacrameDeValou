@@ -1,4 +1,10 @@
 
+body {
+    background-color: rgb(241, 186, 75);
+}
+
+
+
 .navbar-item-custom a {
     color: white;
 }
@@ -27,3 +33,8 @@
     font-size: 14px;
     display: block;
 }
+
+/* .formLogin {
+    max-width: 80%;
+    margin: 0 auto;
+} */
