@@ -3,24 +3,47 @@
 {% block title %}La boutique Macramé de valou{% endblock %}
 
 {% block body %}
-<h2 class="text-center">Je passe ma commande</h2>
-<hr>
-<div class="row">
-    <div class="col-md-6">
-        <h4>Choisir mon adresse de livraison</h4>
+    <h2 class="text-center">Je passe ma commande</h2>
+    <hr>
+    <div class="row">
+        <div class="col-md-6">
 
-        {% set formHtml %}
-        {{ form(form) }}
-        {%  endset %}
+            {% set formHtml %}
+                {{ form_start(form, {action:path('order_recap')}) }}
 
-        {{ formHtml|replace({'[br]' : '<br>'})|raw }}
+
+                {{ form_end(form) }}
+            {% endset %}
+
+            {{ formHtml|replace({'[br]' : '<br>'})|raw }}
+        </div>
+
+        <div class="col-md-6">
+            <div class="text-center">
+                <b class="">Récapitulatif de ma commande</b>
+
+            </div>
+            <div class="order-summary">
+                {% for product in cart %}
+                    <div class="row">
+                        <div class="col-2">
+                            <img src="/uploads/{{ product.product.illustration }}" alt="{{ product.product.name }}"
+                                 height="75px" class="mt-2">
+                        </div>
+                        <div class="col-8 text-justify my-auto">
+                            {{ product.product.name }}<br>
+                            <small>{{ product.product.subtitle }}</small>
+                        </div>
+                        <div class="col-2 text-justify my-auto">
+                            X {{ product.quantity }}
+                        </div>
+
+                    </div>
+                {% endfor %}
+
+            </div>
+        </div>
+
     </div>
-
-    <div class="col-md-6">
-    <h4>Récapitulatif de ma commande</h4>
-    </div>
-
-
-</div>
 
 {% endblock %}

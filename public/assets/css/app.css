@@ -34,7 +34,18 @@ body {
     display: block;
 }
 
-/* .formLogin {
-    max-width: 80%;
-    margin: 0 auto;
-} */
+.form-check {
+    background-color: #f7f8fa;
+    padding: 20px 65px;
+    margin-top: 7px;
+}
+
+.col-form-label {
+    font-weight: bold;
+}
+
+.order-summary {
+    background-color: #f7f8fa;
+    padding: 20px;
+    margin-top: 22px;
+}
