@@ -6,29 +6,30 @@ use App\Classe\Cart;
 use App\Entity\Order;
 use App\Entity\OrderDetails;
 use App\Form\OrderType;
+use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
-use Doctrine\ORM\EntityManagerInterface;
+
 
 class OrderController extends AbstractController
 {
-private $entityManager;
+    private $entityManager;
 
-public function __construct(EntityManagerInterface $em)
-{
-    $this->entityManager = $em;
-}
+    public function __construct(EntityManagerInterface $em)
+    {
+        $this->entityManager = $em;
+    }
 
 
-/**
-* @route("/commande", name="order")
-*/   
-public function index( Cart $cart, Request $request): Response
+    /**
+     * @route("/commande", name="order")
+     */
+    public function index(Cart $cart, Request $request): Response
     {
 
-        if(!$this->getUser()->getAddresses()->getValues()) {
+        if (!$this->getUser()->getAddresses()->getValues()) {
             return $this->redirectToRoute('account_address_add');
         }
 
@@ -42,8 +43,12 @@ public function index( Cart $cart, Request $request): Response
         ]);
     }
 
-    #[Route('/commande/recapitulatif', name: 'order_recap')]
-    public function add( Cart $cart, Request $request): Response
+
+    /**
+     * @route("/commande/recapitulatif", name="order_recap", methods={"POST"})
+     */
+    public
+    function add(Cart $cart, Request $request): Response
     {
 
         $form = $this->createForm(OrderType::class, null, [
@@ -77,7 +82,7 @@ public function index( Cart $cart, Request $request): Response
             $this->entityManager->persist($order);
 
             //Enregister mes produits OrderDetails
-            foreach  ($cart->getFull() as $product ) {
+            foreach ($cart->getFull() as $product) {
                 $orderDetails = new OrderDetails();
                 $orderDetails->setMyOrder($order);
                 $orderDetails->setProduct($product['product']->getName());
@@ -86,15 +91,17 @@ public function index( Cart $cart, Request $request): Response
                 $orderDetails->setTotal($product['product']->getPrice() * $product['quantity']);
 
                 $this->entityManager->persist($orderDetails);
-                }
+            }
             $this->entityManager->flush();
 
-        }
+            return $this->render('order/add.html.twig', [
+                'cart' => $cart->getFull(),
+                'carrier' => $carriers,
+                'delivery' => $delivery_content
+            ]);
 
-        return $this->render('order/add.html.twig', [
-            'cart' => $cart->getFull(),
-            'carrier' =>$carriers,
-            'delivery' => $delivery_content
-        ]);
+        }
+        return $this->$this->redirectToRoute('cart');
+
     }
 }
