@@ -32,11 +32,9 @@ public function index( Cart $cart, Request $request): Response
             return $this->redirectToRoute('account_address_add');
         }
 
-
         $form = $this->createForm(OrderType::class, null, [
             'user' => $this->getUser()
         ]);
-
 
         return $this->render('order/index.html.twig', [
             'form' => $form->createView(),
@@ -47,9 +45,6 @@ public function index( Cart $cart, Request $request): Response
     #[Route('/commande/recapitulatif', name: 'order_recap')]
     public function add( Cart $cart, Request $request): Response
     {
-
-
-
 
         $form = $this->createForm(OrderType::class, null, [
             'user' => $this->getUser()
@@ -97,7 +92,9 @@ public function index( Cart $cart, Request $request): Response
         }
 
         return $this->render('order/add.html.twig', [
-            'cart' => $cart->getFull()
+            'cart' => $cart->getFull(),
+            'carrier' =>$carriers,
+            'delivery' => $delivery_content
         ]);
     }
 }
