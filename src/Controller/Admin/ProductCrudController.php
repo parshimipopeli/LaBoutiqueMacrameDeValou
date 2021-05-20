@@ -12,6 +12,9 @@ use EasyCorp\Bundle\EasyAdminBundle\Field\MoneyField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\SlugField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextareaField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
+use Vich\UploaderBundle\Form\Type\VichImageType;
+use App\Field\VichImageField;
+
 
 class ProductCrudController extends AbstractCrudController
 {
@@ -23,20 +26,21 @@ class ProductCrudController extends AbstractCrudController
 
     public function configureFields(string $pageName): iterable
     {
-        return [
+        return array(
             TextField::new('name'),
             SlugField::new('slug')->setTargetFieldName('name'),
+            TextField::new('imageFile')->setFormType(VichImageType::class)->onlyWhenCreating(),
             ImageField::new('illustration')
-                ->setBasePath('uploads/')
-                ->setUploadDir('public/uploads')
-                ->setUploadedFileNamePattern('[randomhash].[extension]')
-                ->setRequired(false),
+                ->setBasePath('/uploads/images/')->onlyOnIndex(),
+//                ->setUploadDir('public/uploads/'),
+//                ->setUploadedFileNamePattern('[randomhash].[extension]')
+//                ->setRequired(false),
             TextField::new('subtitle'),
             TextareaField::new('description'),
             MoneyField::new('price')->setCurrency('EUR'),
             BooleanField::new('online'),
             AssociationField::new('category')
-        ];
+        );
     }
 
 }

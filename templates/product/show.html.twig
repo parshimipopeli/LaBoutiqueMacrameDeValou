@@ -6,7 +6,7 @@
 
     <div class="row">
         <div class="col-md-5 mt-5 mb-5">
-            <img src="/uploads/{{ product.illustration }}" alt="{{ product.name }}" class="img-fluid">
+            <img src="{{ vich_uploader_asset(product, 'imageFile') | imagine_filter('max') }}" alt="{{ product.name }}" class="img-fluid rounded">
         </div>
 
         <div class="col-md-7 my-auto">

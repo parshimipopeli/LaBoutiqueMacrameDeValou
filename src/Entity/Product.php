@@ -4,11 +4,13 @@ namespace App\Entity;
 
 use App\Repository\ProductRepository;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\HttpFoundation\File\File;
 use Vich\UploaderBundle\Mapping\Annotation as Vich;
 
 
 /**
  * @ORM\Entity(repositoryClass=ProductRepository::class)
+ * @Vich\Uploadable
  */
 class Product
 {
@@ -34,6 +36,12 @@ class Product
      * @ORM\Column(type="string", length=255)
      */
     private $illustration;
+
+    /**
+     * @Vich\UploadableField(mapping="products_images", fileNameProperty="illustration")
+     * @var file
+     */
+    private $imageFile;
 
     /**
      * @ORM\Column(type="string", length=255)
@@ -95,11 +103,24 @@ class Product
         return $this->illustration;
     }
 
-    public function setIllustration(string $illustration): self
+    public function setIllustration($illustration): self
     {
         $this->illustration = $illustration;
 
         return $this;
+    }
+
+
+    public function getImageFile()
+    {
+        return $this->imageFile;
+    }
+
+
+    public function setImageFile(File $file = null)
+    {
+        $this->imageFile = $file;
+
     }
 
     public function getSubtitle(): ?string
@@ -161,4 +182,6 @@ class Product
 
         return $this;
     }
+
+
 }
