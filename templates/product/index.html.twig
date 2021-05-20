@@ -17,7 +17,7 @@
                     <div class=" card col-md-3 ml-4 mt-4">
                         <div class="product-item text-center">
                             <a href="{{ path('product', { 'slug' : product.slug }) }}"> <img
-                                        src="/uploads/{{ product.illustration }}" alt="{{ product.name }}"
+                                        src="{{ vich_uploader_asset(product, 'imageFile') | imagine_filter('mini') }}" alt="{{ product.name }}"
                                         class="img-fluid rounded"></a>
                             <h5>{{ product.name }}</h5>
                             <span>{{ product.subtitle }}</span>
